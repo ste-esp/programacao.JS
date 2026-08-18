@@ -138,7 +138,7 @@ Mostre na tela o valor da mesada, o valor gasto e quanto dinheiro sobrou.
 let mesada = 100
 let gastos = 50
 let subtracao = mesada - gastos
-console.log("a mesa de João era de R$"+mesada+", ele gastou R$"+gastos+" e sobrou R$"+subtracao) 
+console.log("a mesada de João era de R$"+mesada+", ele gastou R$"+gastos+" e sobrou R$"+subtracao) 
 
 /*
 ### ----- Atividade 8:
@@ -166,8 +166,8 @@ Converta essa temperatura para Fahrenheit e para Kelvin e mostre na tela os valo
 
 */
 
-let celsius = 30
-let fahrenheit = celsius * 273.15
+let celsius = 20
+let fahrenheit = (celsius * 9 / 5) + 32
 let kelvin = celsius + 273.15
 console.log("Graus celsius de "+celsius+"° convertido em fahrenheit é "+fahrenheit+" e em kelvin é "+kelvin )
 
@@ -209,8 +209,12 @@ Ao final, mostre o valor das duas variáveis na tela.
 */
 
 
-let variavelum = 10
-let variaveldois = 20
+let variavelum = "Groselha"
+let variaveldois = 99
+let auxiliar = variavelum
+variavelum = variaveldois
+variaveldois = auxiliar
+console.log("variavel 1 é: "+variavelum+ " e a variavel 2 é: "+variaveldois)
 
 
 /*
@@ -229,8 +233,15 @@ o consumo do carro e o valor total gasto com combustível.
 */
 
 let distanciacarro = 12 
-let combustivel = 4 * distanciacarro
-let precogasosa = 6.53 * distanciacarro
-console.log("A distancia percorrida é "+distanciacarro+"km , os litros de combustivel usado foi de "+combustivel+"L a gasolina saiu no total por "+precogasosa)
+let combustivel = 4 
+let precogasosa = 6.53
+let kml = distanciacarro / combustivel
+let gastosgasosa = combustivel * distanciacarro 
+console.log("A distancia percorrida é "+distanciacarro+"km , os litros de combustivel usado foi de "+combustivel+"L a gasolina saiu no total por "+gastosgasosa+"L")
 
 
+
+console.log("   /\\")
+console.log("  /  \\")
+console.log(" /    \\")
+console.log("/______\\")
