@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel</title>
+</head>
+
+<body>
+
+    <div id="painelLogin">
+
+        <form>
+
+            <h1>Login (∩^o^)⊃━☆ </h1>
+            <p>Digite seu usuário:</p>
+            <input id="inputUsuario" />
+            <p>Digite sua senha:</p>
+            <input type="password" id="inputSenha" />
+            <br />
+            <hr />
+        </form>
+        <button onclick="autenticar()">Entrar</button>
+    </div>
+
+    <div id="painelAdministrativo" style="display: none;">
+
+        <h1>Painel administrativo *★,°*:.☆(￣▽￣)/$:*.°★* 。 </h1>
+        <p>Você está logado como <strong>administrador</strong></p>
+        <button onclick="logout()">Sair da conta</button>
+        <hr>
+        <button onclick="jogo()">Voltar ao jogo</button>
+
+    </div>
+
+
+    <script>
+
+        function jogo() {
+            location.href = "08_sorvetito.html"
+        }
+
+        verificaLogin()
+
+        function verificaLogin() {
+
+            let autenticado = localStorage.getItem("autenticado")
+
+            if (autenticado == 1) {
+                document.getElementById("painelAdministrativo").style.display = "block"
+                document.getElementById("painelLogin").style.display = "none"
+            }
+
+        }
+
+        //function autenticar = verificar se aquilo é autentico / existe
+        function autenticar() {
+            // Busca e popula as variáveis com os valores dos inputs
+            let usuario = document.getElementById("inputUsuario").value
+            let senha = document.getElementById("inputSenha").value
+
+            if (usuario.trim().length < 3) { //trim para cortar espaços na caixa de senha e usuario na hr de verificar
+                alert("Usuário incorreto. Verifique e tente novamente.")
+                return
+            }
+
+            if (senha.length == 0) {
+                alert("Senha incorreta. Verifique e tente novamente.")
+                return
+            }
+
+            if (usuario != "administrador") {
+                alert("Usuário incorreto")
+                return
+            }
+
+            if (senha != "123123") {
+                alert("Senha incorreta")
+                return
+            }
+
+
+            localStorage.setItem("autenticado", 1)
+
+            // get para pegar
+            // set pra alterar
+
+            // Alterna a visualização (mostra/ocultar) dos painéis
+            document.getElementById("painelAdministrativo").style.display = "block"
+            document.getElementById("painelLogin").style.display = "none"
+        }
+
+        function logout() {
+
+            localStorage.removeItem("autenticado")
+
+            document.getElementById("painelAdministrativo").style.display = "none"
+            document.getElementById("painelLogin").style.display = "block"
+
+        }
+
+        //SHIFT ALT "F" - PARA ORGANIZAR OS CLASSES
+
+    </script>
+
+
+</body>
+
+</html>

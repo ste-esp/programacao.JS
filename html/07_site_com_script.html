@@ -7,11 +7,43 @@
 </head>
 <body>
     
+
+    
     <h1>HTML com script</h1>
     <p>Aplicando programação dentro do HTML</p>
     <button onclick="mostrarMensagem()" >Ver mensagem</button>
+
+    <hr/>
+
+    <button onclick="contarCliques">Clique aqui</button>
+    <hr/>
+
+
     
+
     <script>
+        
+        let cliques = 0
+        let dinheiro = 0 
+
+
+        function fazerSorvete(){
+            dinheiro += 1 
+        }
+
+
+
+        function contarCliques(){
+            
+            cliques = cliques + 1
+
+            if(cliques > 10){
+                alert("Vc chegou no limite")
+            }else{
+
+            }
+            }
+
         
         function  mostrarMensagem(){
             console.log("Olá mundo!")

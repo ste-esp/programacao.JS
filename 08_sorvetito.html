@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorvetito</title>
+</head>
+
+<body>
+
+
+    <h1>Sorvetito (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧</h1>
+    <p>Você tem <strong id="textoDinheiro">💰 0 </strong></p>
+
+    <img src="sorvete-feliz_3758.gif" onclick="fazerSorvete()" <hr />
+
+    <ul>
+        <li>Carrinho de Sorvete - <strong id="carrinhoSorvete"> 25 </strong> <button
+                onclick="carrinhoSorvete()">COMPRAR</button></li>
+        <li>Freezer Grande - 1.000 <button onclick="freezerGrande()">COMPRAR</button> </li>
+        <li>Marca Gourmet - 50.000 <button onclick="marcaGourmet()">COMPRAR</button> </li>
+    </ul>
+
+    <p>Entre com uma conta para ganhar 1.000 💰 <button onclick="resgatarRecompensa()">Restagar recompensa</button></p>
+
+    <button onclick="painelAdm()">Acessar painel</button>
+
+
+    <script>
+
+        let custoCarrinhoSorvete = 25
+        let dinheiro = 0
+        let dinheiroPorClique = 1
+
+
+
+
+        function painelAdm() {
+            location.href = "09_painel.html"
+        }
+
+
+
+        function resgatarRecompensa() {
+            if (localStorage.getItem("autenticado") == 1) {
+                alert("Recompensa concebida")
+                dinheiro += 1000
+                document.getElementById("textoDinheiro").innerHTML = dinheiro
+            } else {
+                alert("Você deve fazer login para continuar...")
+
+
+            }
+
+
+        }
+
+        function fazerSorvete() {
+            dinheiro += dinheiroPorClique
+            document.getElementById("textoDinheiro").innerHTML = dinheiro
+        }
+
+        function carrinhoSorvete() {
+
+            if (dinheiro < custoCarrinhoSorvete) {
+                alert("Dinheiro insuficiente")
+            } else {
+                dinheiroPorClique += 1
+                dinheiro -= custoCarrinhoSorvete
+                document.getElementById("textoDinheiro").innerHTML = dinheiro
+                custoCarrinhoSorvete += parseInt(custoCarrinhoSorvete * 0.2)
+                document.getElementById("carrinhoSorvete").innerHTML = custoCarrinhoSorvete
+            }
+
+        }
+
+
+        function logout() {
+            let sorvetito = localStorage.getItem("sorvetito")
+
+            
+            localStorage.removeItem("sorvetito")
+
+            document.getElementById("sorvetito").style.display = "none"
+            // document.getElementById("painelLogin").style.display = "block"
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
